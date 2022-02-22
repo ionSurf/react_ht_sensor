@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# react_ht_sensor
+Humidity / Temperature sensor dashboard for UBC MSEE
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
