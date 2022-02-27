@@ -22,6 +22,7 @@ const RangesTab = () => {
   //  On mount useEffect
   useEffect(() => {
     _onDefaultHandler();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const _onSaveHandler = () => {
     // setHumidityRange({

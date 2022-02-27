@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import Tabs from "../../../../components/Tabs";
 import { useTabs } from "../../../../components/Tabs/hooks";
 
@@ -8,7 +9,13 @@ const SettingsTabs = ({ tabs, children }) => {
     tabCount: 0,
     maxTabCount: 3,
   });
-  // console.log("setings tabs", { activeTabId, tabs });
+  SettingsTabs.propTypes = {
+    tabs: propTypes.arrayOf(propTypes.object),
+    children: propTypes.oneOfType([
+      propTypes.object,
+      propTypes.arrayOf(propTypes.object),
+    ]),
+  };
 
   return (
     <Tabs>

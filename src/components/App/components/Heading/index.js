@@ -1,6 +1,7 @@
 import React from "react";
-import { MainNaviBar } from "../../../Theme/Navigation";
-import { HeadingLayout } from "../../../Theme/Layouts";
+import propTypes from "prop-types";
+import { MainNaviBar } from "../../../../theme/Navigation";
+import { HeadingLayout } from "../../../../theme/layouts";
 
 const Heading = ({ routes }) => {
   return (
@@ -9,4 +10,8 @@ const Heading = ({ routes }) => {
     </HeadingLayout>
   );
 };
+Heading.propTypes = {
+  routes: propTypes.arrayOf(propTypes.object),
+};
+
 export default Heading;
