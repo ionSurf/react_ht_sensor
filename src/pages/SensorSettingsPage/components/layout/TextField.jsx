@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 const TextField = ({ label, type, ...inputProps }) => {
   const onLocalChange = (e) => {
@@ -16,5 +17,13 @@ const TextField = ({ label, type, ...inputProps }) => {
       <input type="text" {...inputProps} onChange={onLocalChange} />
     </div>
   );
+};
+TextField.propTypes = {
+  label: propTypes.string,
+  type: propTypes.string,
+  children: propTypes.oneOfType([
+    propTypes.object,
+    propTypes.arrayOf(propTypes.object),
+  ]),
 };
 export default TextField;

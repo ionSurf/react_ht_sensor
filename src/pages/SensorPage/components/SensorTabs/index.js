@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import Tabs from "../../../../components/Tabs";
 import { useTabs } from "../../../../components/Tabs/hooks";
 
@@ -29,6 +30,13 @@ const SensorTabs = ({ tabs, children }) => {
       </Tabs.Container>
     </Tabs>
   );
+};
+SensorTabs.propTypes = {
+  tabs: propTypes.arrayOf(propTypes.object),
+  children: propTypes.oneOfType([
+    propTypes.object,
+    propTypes.arrayOf(propTypes.object),
+  ]),
 };
 
 export default SensorTabs;

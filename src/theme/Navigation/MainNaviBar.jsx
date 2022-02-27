@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function MainNaviBar({ routes }) {
@@ -12,3 +13,10 @@ export default function MainNaviBar({ routes }) {
     </nav>
   );
 }
+MainNaviBar.propTypes = {
+  routes: propTypes.arrayOf(propTypes.object),
+  children: propTypes.oneOfType([
+    propTypes.object,
+    propTypes.arrayOf(propTypes.object),
+  ]),
+};
