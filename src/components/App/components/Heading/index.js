@@ -1,12 +1,12 @@
 import React from "react";
 import propTypes from "prop-types";
-import { MainNaviBar } from "../../../../theme/Navigation";
+import Navi from "../../../Navi";
 import { HeadingLayout } from "../../../../theme/layouts";
 
 const Heading = ({ routes }) => {
   return (
     <HeadingLayout>
-      <MainNaviBar routes={routes} />
+      <Navi routes={routes} />
     </HeadingLayout>
   );
 };
