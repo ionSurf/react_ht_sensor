@@ -13,8 +13,10 @@ const UnitsTab = () => {
     toggleTempUnits();
   };
 
+  // OnMount
   useEffect(() => {
     _setDefaultValue();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

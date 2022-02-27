@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import { TabsProvider } from "./hooks/useTabsContext";
 import {
   Body,
@@ -17,6 +18,12 @@ const Tabs = ({ children }) => {
       {children}
     </TabsProvider>
   );
+};
+Tabs.propTypes = {
+  children: propTypes.oneOfType([
+    propTypes.object,
+    propTypes.arrayOf(propTypes.object),
+  ]),
 };
 
 Tabs.NaviAnchorItem = NaviAnchorItem;
