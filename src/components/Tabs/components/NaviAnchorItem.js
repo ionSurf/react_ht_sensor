@@ -6,6 +6,7 @@ const NaviAnchorItem = ({ children }) => {
 };
 NaviAnchorItem.propTypes = {
   children: propTypes.oneOfType([
+    propTypes.string,
     propTypes.object,
     propTypes.arrayOf(propTypes.object),
   ]),

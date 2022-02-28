@@ -33,10 +33,7 @@ const SensorTabs = ({ tabs, children }) => {
 };
 SensorTabs.propTypes = {
   tabs: propTypes.arrayOf(propTypes.object),
-  children: propTypes.oneOfType([
-    propTypes.object,
-    propTypes.arrayOf(propTypes.object),
-  ]),
+  children: propTypes.func,
 };
 
 export default SensorTabs;
