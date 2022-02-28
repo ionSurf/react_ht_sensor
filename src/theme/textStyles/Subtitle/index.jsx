@@ -2,11 +2,11 @@ import React from "react";
 import propTypes from "prop-types";
 import { Box } from "@mui/material";
 
-const BodyText = ({ typography = "body1", children }) => (
+const Subtitle = ({ typography = "subtitle1", children }) => (
   <Box sx={{ typography: typography }}>{children}</Box>
 );
-BodyText.propTypes = {
+Subtitle.propTypes = {
   children: propTypes.string,
   typography: propTypes.string,
 };
-export default BodyText;
+export default Subtitle;
