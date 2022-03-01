@@ -1,4 +1,3 @@
-import Heading from "./Heading";
-import MainContainer from "./MainContainer";
+import Layout from "./Layout";
 
-export { Heading, MainContainer };
+export { Layout };
