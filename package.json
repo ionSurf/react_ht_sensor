@@ -5,6 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/open-sans": "^4.5.5",
+    "@fontsource/ubuntu-mono": "^4.5.3",
     "@mui/material": "^5.4.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

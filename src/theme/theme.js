@@ -1,4 +1,6 @@
 import { createTheme } from "@mui/material/styles";
+import "@fontsource/ubuntu-mono";
+import "@fontsource/open-sans";
 
 const theme = createTheme({
   palette: {
