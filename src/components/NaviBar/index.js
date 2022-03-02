@@ -10,12 +10,13 @@ function a11yProps(index) {
   };
 }
 
-const NaviBar = ({ routes }) => {
+const NaviBar = ({ routes, navigation = true }) => {
   const navigate = useNavigate();
   const [_tabIndex, set_tabIndex] = React.useState(0);
 
-  const handleChange = (tabIndex) => {
-    navigate(routes[tabIndex].route);
+  const handleChange = (tabIndex, navigation) => {
+    navigation && navigate(routes[tabIndex].route);
+    routes[tabIndex].onClick?.();
     set_tabIndex(tabIndex);
   };
 
@@ -23,7 +24,7 @@ const NaviBar = ({ routes }) => {
     <AppBar position="static">
       <Tabs
         value={_tabIndex}
-        onChange={(e, i) => handleChange(i)}
+        onChange={(e, i) => handleChange(i, navigation)}
         indicatorColor="secondary"
         textColor="inherit"
         variant="fullWidth"
@@ -42,6 +43,7 @@ const NaviBar = ({ routes }) => {
   );
 };
 NaviBar.propTypes = {
+  navigation: propTypes.bool,
   routes: propTypes.arrayOf(propTypes.object),
 };
 export default NaviBar;
