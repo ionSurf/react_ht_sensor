@@ -12,6 +12,8 @@ const SettingsTabs = ({ tabs, children }) => {
   SettingsTabs.propTypes = {
     tabs: propTypes.arrayOf(propTypes.object),
     children: propTypes.oneOfType([
+      propTypes.any,
+      propTypes.string,
       propTypes.object,
       propTypes.arrayOf(propTypes.object),
     ]),
