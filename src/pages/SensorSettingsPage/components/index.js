@@ -1,7 +1,6 @@
+import EndpointsTab from "./EndpointsTab";
+import SettingsTabs from "./SettingsTabs";
 import RangesTab from "./RangesTab";
 import UnitsTab from "./UnitsTab";
-import EndpointsTab from "./EndpointsTab";
-import SectionHeading from "./SectionHeading";
-import SettingsTabs from "./SettingsTabs";
 
-export { RangesTab, UnitsTab, EndpointsTab, SectionHeading, SettingsTabs };
+export { RangesTab, UnitsTab, EndpointsTab, SettingsTabs };
