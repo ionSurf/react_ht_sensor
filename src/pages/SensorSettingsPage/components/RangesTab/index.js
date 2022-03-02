@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useRanges } from "../../../../hooks";
 import Layout from "../../Layout";
 
+//  Temporary layout
+import { Grid, Box } from "@mui/material";
+
 const RangesTab = () => {
   const [_humRange, set_humRange] = useState({
     min: 0,
@@ -54,12 +57,12 @@ const RangesTab = () => {
   return (
     <Layout>
       <Column>
-        <Row>
-          <Column>
-            <Row>
+        <Grid container spacing={1}>
+          <Grid xs={6}>
+            <Box>
               <Heading>{`Humidity`}</Heading>
-            </Row>
-            <Row>
+            </Box>
+            <Box>
               <TextField
                 label="min."
                 value={_humRange.min}
@@ -78,8 +81,8 @@ const RangesTab = () => {
                   })
                 }
               />
-            </Row>
-            <Row>
+            </Box>
+            <Box>
               <TextField
                 label="max."
                 value={_humRange.max}
@@ -98,13 +101,13 @@ const RangesTab = () => {
                   })
                 }
               ></TextField>
-            </Row>
-          </Column>
-          <Column>
-            <Row>
+            </Box>
+          </Grid>
+          <Grid xs={6}>
+            <Box>
               <Heading>{`Temperature`}</Heading>
-            </Row>
-            <Row>
+            </Box>
+            <Box>
               <TextField
                 label="min."
                 value={_tmpRange.min}
@@ -123,8 +126,8 @@ const RangesTab = () => {
                   })
                 }
               ></TextField>
-            </Row>
-            <Row>
+            </Box>
+            <Box>
               <TextField
                 label="max."
                 value={_tmpRange.max}
@@ -143,9 +146,9 @@ const RangesTab = () => {
                   })
                 }
               ></TextField>
-            </Row>
-          </Column>
-        </Row>
+            </Box>
+          </Grid>
+        </Grid>
         <Row>
           <Column>
             <Button onClick={_onSaveHandler}>{`Save`}</Button>
