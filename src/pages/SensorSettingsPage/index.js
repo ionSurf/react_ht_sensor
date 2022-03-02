@@ -1,19 +1,14 @@
 import React from "react";
 import SettingsPageView from "./view";
 
-import {
-  RangesTab,
-  SectionHeading,
-  SettingsTabs,
-  UnitsTab,
-  EndpointsTab,
-} from "./components";
+import { RangesTab, SettingsTabs, UnitsTab, EndpointsTab } from "./components";
+import Layout from "./Layout";
 import Tabs from "../../components/Tabs";
 
 const SensorSettingsPage = () => {
   return (
     <SettingsPageView>
-      <SectionHeading>Settings</SectionHeading>
+      <Layout.SectionHeading>Settings</Layout.SectionHeading>
       <SettingsTabs
         tabs={[
           {
