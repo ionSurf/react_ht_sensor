@@ -4,6 +4,7 @@ import propTypes from "prop-types";
 const SensorStatisticsPageView = ({ children }) => <>{children}</>;
 SensorStatisticsPageView.propTypes = {
   children: propTypes.oneOfType([
+    propTypes.string,
     propTypes.object,
     propTypes.arrayOf(propTypes.object),
   ]),
