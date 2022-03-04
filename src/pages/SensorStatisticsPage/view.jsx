@@ -5,7 +5,7 @@ import { Container, Grid, Box } from "../../theme/components";
 import { Heading } from "../../theme/textStyles";
 import Tabs from "../../components/Tabs";
 
-const SensorStatisticsPageView = ({ stats }) => (
+const SensorStatisticsPageView = ({ stats, samples }) => (
   <Container maxWidth="xl">
     <Box>
       <Heading typography="h2">Statistics</Heading>
@@ -26,7 +26,28 @@ const SensorStatisticsPageView = ({ stats }) => (
         {(activeTabId) => (
           <>
             <Tabs.Tab activeTabId={activeTabId} id={"graph"}>
-              <Graph />
+              <Box>
+                <Graph
+                  XAxisKey={"interval"}
+                  YAxisKey={"humidity"}
+                  data={samples.hum.map((e, i) => ({
+                    interval: `${i}`,
+                    humidity: e,
+                    amt: 2400,
+                  }))}
+                />
+              </Box>
+              <Box>
+                <Graph
+                  XAxisKey={"interval"}
+                  YAxisKey={"temperature"}
+                  data={samples.tmp.map((e, i) => ({
+                    interval: `${i}`,
+                    temperature: e,
+                    amt: 2400,
+                  }))}
+                />
+              </Box>
             </Tabs.Tab>
             <Tabs.Tab activeTabId={activeTabId} id={"table"}>
               <CustomizedTables />
