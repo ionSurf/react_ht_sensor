@@ -1,4 +1,5 @@
 import * as React from "react";
+import propTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -41,7 +42,8 @@ const rows = [
   createData(4, 16, 60.7, 4),
 ];
 
-export default function CustomizedTables() {
+export default function CustomizedTables({ data }) {
+  data;
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -67,3 +69,6 @@ export default function CustomizedTables() {
     </TableContainer>
   );
 }
+CustomizedTables.propTypes = {
+  data: propTypes.arrayOf(propTypes.object),
+};
