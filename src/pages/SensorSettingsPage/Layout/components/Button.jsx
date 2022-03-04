@@ -1,10 +1,15 @@
 import React from "react";
 import propTypes from "prop-types";
+import { Button as MuiButton } from "../../../../theme/components";
 
-const Button = ({ onClick, children }) => {
-  return <button onClick={onClick}>{children}</button>;
-};
+const Button = ({ onClick, children, ...props }) => (
+  <MuiButton onClick={onClick} {...props}>
+    {children}
+  </MuiButton>
+);
+
 Button.propTypes = {
+  props: propTypes.any,
   onClick: propTypes.func,
   children: propTypes.oneOfType([
     propTypes.string,
