@@ -18,6 +18,7 @@ Button.propTypes = {
   variant: propTypes.string,
   classes: propTypes.string,
   children: propTypes.oneOfType([
+    propTypes.string,
     propTypes.object,
     propTypes.arrayOf(propTypes.object),
   ]),
