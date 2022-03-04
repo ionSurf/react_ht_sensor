@@ -3,6 +3,9 @@ import propTypes from "prop-types";
 import Tabs from "../../../../components/Tabs";
 import { useTabs } from "../../../../components/Tabs/hooks";
 
+//  TODO :: Integrate in Tabs elements
+import { TabsNavi } from "./components";
+
 const SettingsTabs = ({ tabs, children }) => {
   const { activeTabId, setActiveTab } = useTabs({
     activeTabId: (tabs.length > 0 && tabs[0].id) ?? null,
@@ -21,8 +24,13 @@ const SettingsTabs = ({ tabs, children }) => {
 
   return (
     <Tabs>
+      <TabsNavi
+        tabs={tabs}
+        activeTabId={activeTabId}
+        setActiveTab={setActiveTab}
+      />
       <Tabs.Body>{children(activeTabId)}</Tabs.Body>
-      <Tabs.Navi>
+      {/* <Tabs.Navi>
         {tabs.map((t) => (
           <Tabs.NaviItem
             key={t.id}
@@ -33,7 +41,7 @@ const SettingsTabs = ({ tabs, children }) => {
             <Tabs.NaviAnchorItem>{`${t.name}`}</Tabs.NaviAnchorItem>
           </Tabs.NaviItem>
         ))}
-      </Tabs.Navi>
+      </Tabs.Navi> */}
     </Tabs>
   );
 };
