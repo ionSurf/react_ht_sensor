@@ -10,7 +10,6 @@ const SensorTabs = ({ tabs, children }) => {
     tabCount: 0,
     maxTabCount: 2,
   });
-  console.log({ tabs, children });
   const routes = tabs.map((t) => ({
     ...t,
     title: t.name,
