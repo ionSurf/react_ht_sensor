@@ -58,7 +58,7 @@ const RangesTab = () => {
     <Layout>
       <Column>
         <Grid container spacing={1}>
-          <Grid xs={6}>
+          <Grid item xs={6}>
             <Box>
               <Heading>{`Humidity`}</Heading>
             </Box>
@@ -103,7 +103,7 @@ const RangesTab = () => {
               ></TextField>
             </Box>
           </Grid>
-          <Grid xs={6}>
+          <Grid item xs={6}>
             <Box>
               <Heading>{`Temperature`}</Heading>
             </Box>
