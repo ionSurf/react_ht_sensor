@@ -1,4 +1,6 @@
 import React from "react";
+import propTypes from "prop-types";
+
 import {
   LineChart,
   Line,
@@ -9,35 +11,7 @@ import {
   Legend,
 } from "recharts";
 
-const data = [
-  {
-    name: "1",
-    uv: 18,
-    amt: 2400,
-  },
-  {
-    name: "2",
-    uv: 10.2,
-    amt: 2210,
-  },
-  {
-    name: "3",
-    uv: 15.1,
-    amt: 2290,
-  },
-  {
-    name: "4",
-    uv: 16,
-    amt: 2000,
-  },
-  {
-    name: "5",
-    uv: 16.1,
-    amt: 2181,
-  },
-];
-
-export default function Graph() {
+export default function Graph({ XAxisKey, YAxisKey, data }) {
   return (
     <LineChart
       width={525}
@@ -51,16 +25,21 @@ export default function Graph() {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey={XAxisKey} />
       <YAxis />
       <Tooltip />
       <Legend />
       <Line
         type="monotone"
-        dataKey="uv"
+        dataKey={YAxisKey}
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
     </LineChart>
   );
 }
+Graph.propTypes = {
+  XAxisKey: propTypes.string,
+  YAxisKey: propTypes.string,
+  data: propTypes.arrayOf(propTypes.object),
+};
