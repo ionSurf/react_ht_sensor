@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useRanges } from "../../../../hooks";
-import { Column, Row, Heading, TextField, Button } from "../layout";
+import Layout from "../../Layout";
+
+//  Temporary layout
+import { Grid, Box } from "@mui/material";
 
 const RangesTab = () => {
   const [_humRange, set_humRange] = useState({
@@ -18,6 +21,8 @@ const RangesTab = () => {
     setHumidityRange,
     setTemperatureRange,
   } = useRanges();
+
+  const { Row, Column, Button, Heading, TextField } = Layout;
 
   //  On mount useEffect
   useEffect(() => {
@@ -50,106 +55,108 @@ const RangesTab = () => {
   };
 
   return (
-    <Column>
-      <Row>
-        <Column>
-          <Row>
-            <Heading>{`Humidity`}</Heading>
-          </Row>
-          <Row>
-            <TextField
-              label="min."
-              value={_humRange.min}
-              onChange={(e) => {
-                console.log(e.target.value);
-                set_humRange({
-                  ..._humRange,
-                  min: e.target.value,
-                });
-              }}
-              onBlur={(e) =>
-                parseFloat(e.target.value).toFixed(2) !== _humRange.min &&
-                set_humRange({
-                  ..._humRange,
-                  min: parseFloat(e.target.value).toFixed(2),
-                })
-              }
-            />
-          </Row>
-          <Row>
-            <TextField
-              label="max."
-              value={_humRange.max}
-              onChange={(e) =>
-                set_humRange({
-                  ..._humRange,
-                  // max: parseFloat(e.target.value).toFixed(2),
-                  max: e.target.value,
-                })
-              }
-              onBlur={(e) =>
-                parseFloat(e.target.value).toFixed(2) !== _humRange.max &&
-                set_humRange({
-                  ..._humRange,
-                  max: parseFloat(e.target.value).toFixed(2),
-                })
-              }
-            ></TextField>
-          </Row>
-        </Column>
-        <Column>
-          <Row>
-            <Heading>{`Temperature`}</Heading>
-          </Row>
-          <Row>
-            <TextField
-              label="min."
-              value={_tmpRange.min}
-              onChange={(e) =>
-                set_tmpRange({
-                  ..._tmpRange,
-                  // min: parseFloat(e.target.value).toFixed(2),
-                  min: e.target.value,
-                })
-              }
-              onBlur={(e) =>
-                parseFloat(e.target.value).toFixed(2) !== _tmpRange.min &&
-                set_tmpRange({
-                  ..._tmpRange,
-                  min: parseFloat(e.target.value).toFixed(2),
-                })
-              }
-            ></TextField>
-          </Row>
-          <Row>
-            <TextField
-              label="max."
-              value={_tmpRange.max}
-              onChange={(e) =>
-                set_tmpRange({
-                  ..._tmpRange,
-                  // max: parseFloat(e.target.value).toFixed(2),
-                  max: e.target.value,
-                })
-              }
-              onBlur={(e) =>
-                parseFloat(e.target.value).toFixed(2) !== _tmpRange.max &&
-                set_tmpRange({
-                  ..._tmpRange,
-                  max: parseFloat(e.target.value).toFixed(2),
-                })
-              }
-            ></TextField>
-          </Row>
-        </Column>
-      </Row>
-      <Row>
-        <Column>
-          <Button onClick={_onSaveHandler}>{`Save`}</Button>
-          <Button onClick={_onDefaultHandler}>{`Default`}</Button>
-        </Column>
-      </Row>
-    </Column>
+    <Layout>
+      <Column>
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <Box>
+              <Heading>{`Humidity`}</Heading>
+            </Box>
+            <Box>
+              <TextField
+                label="min."
+                value={_humRange.min}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  set_humRange({
+                    ..._humRange,
+                    min: e.target.value,
+                  });
+                }}
+                onBlur={(e) =>
+                  parseFloat(e.target.value).toFixed(2) !== _humRange.min &&
+                  set_humRange({
+                    ..._humRange,
+                    min: parseFloat(e.target.value).toFixed(2),
+                  })
+                }
+              />
+            </Box>
+            <Box>
+              <TextField
+                label="max."
+                value={_humRange.max}
+                onChange={(e) =>
+                  set_humRange({
+                    ..._humRange,
+                    // max: parseFloat(e.target.value).toFixed(2),
+                    max: e.target.value,
+                  })
+                }
+                onBlur={(e) =>
+                  parseFloat(e.target.value).toFixed(2) !== _humRange.max &&
+                  set_humRange({
+                    ..._humRange,
+                    max: parseFloat(e.target.value).toFixed(2),
+                  })
+                }
+              ></TextField>
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box>
+              <Heading>{`Temperature`}</Heading>
+            </Box>
+            <Box>
+              <TextField
+                label="min."
+                value={_tmpRange.min}
+                onChange={(e) =>
+                  set_tmpRange({
+                    ..._tmpRange,
+                    // min: parseFloat(e.target.value).toFixed(2),
+                    min: e.target.value,
+                  })
+                }
+                onBlur={(e) =>
+                  parseFloat(e.target.value).toFixed(2) !== _tmpRange.min &&
+                  set_tmpRange({
+                    ..._tmpRange,
+                    min: parseFloat(e.target.value).toFixed(2),
+                  })
+                }
+              ></TextField>
+            </Box>
+            <Box>
+              <TextField
+                label="max."
+                value={_tmpRange.max}
+                onChange={(e) =>
+                  set_tmpRange({
+                    ..._tmpRange,
+                    // max: parseFloat(e.target.value).toFixed(2),
+                    max: e.target.value,
+                  })
+                }
+                onBlur={(e) =>
+                  parseFloat(e.target.value).toFixed(2) !== _tmpRange.max &&
+                  set_tmpRange({
+                    ..._tmpRange,
+                    max: parseFloat(e.target.value).toFixed(2),
+                  })
+                }
+              ></TextField>
+            </Box>
+          </Grid>
+        </Grid>
+        <Row>
+          <Column>
+            <Button onClick={_onSaveHandler}>{`Save`}</Button>
+            <Button onClick={_onDefaultHandler}>{`Default`}</Button>
+          </Column>
+        </Row>
+      </Column>
+    </Layout>
   );
 };
 export default RangesTab;

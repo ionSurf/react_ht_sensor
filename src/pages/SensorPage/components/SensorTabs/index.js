@@ -1,6 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import Tabs from "../../../../components/Tabs";
+import NaviBar from "../../../../components/NaviBar";
 import { useTabs } from "../../../../components/Tabs/hooks";
 
 const SensorTabs = ({ tabs, children }) => {
@@ -9,13 +10,19 @@ const SensorTabs = ({ tabs, children }) => {
     tabCount: 0,
     maxTabCount: 2,
   });
-  console.log({ tabs, children });
+  const routes = tabs.map((t) => ({
+    ...t,
+    title: t.name,
+    route: `/sensor/${t.id}`,
+    onClick: () => setActiveTab(t.id),
+  }));
 
   return (
     <Tabs>
       <Tabs.Container>
         <Tabs.Body>{children(activeTabId)}</Tabs.Body>
-        <Tabs.Navi>
+        <NaviBar routes={routes} navigation={false} />
+        {/* <Tabs.Navi>
           {tabs.map((t, i) => (
             <Tabs.NaviItem
               key={i}
@@ -26,7 +33,7 @@ const SensorTabs = ({ tabs, children }) => {
               <Tabs.NaviAnchorItem>{`${t.name}`}</Tabs.NaviAnchorItem>
             </Tabs.NaviItem>
           ))}
-        </Tabs.Navi>
+        </Tabs.Navi> */}
       </Tabs.Container>
     </Tabs>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Column, Row, ToggleButton } from "../layout";
+import Layout from "../../Layout";
 import { useTempUnits } from "../../../../hooks";
 
 const UnitsTab = () => {
@@ -20,21 +20,23 @@ const UnitsTab = () => {
   }, []);
 
   return (
-    <Column>
-      <Row>
-        <Column>
-          <Row>
-            <ToggleButton
-              label={`Temp. Units`}
-              value={_tempUnits}
-              onChange={(e) =>
-                _onChangeTempUnits(e.target.value === "F" ? "C" : "F")
-              }
-            />
-          </Row>
-        </Column>
-      </Row>
-    </Column>
+    <Layout>
+      <Layout.Column>
+        <Layout.Row>
+          <Layout.Column>
+            <Layout.Row>
+              <Layout.ToggleButton
+                label={`Temp. Units`}
+                value={_tempUnits}
+                onChange={(e) =>
+                  _onChangeTempUnits(e.target.value === "F" ? "C" : "F")
+                }
+              />
+            </Layout.Row>
+          </Layout.Column>
+        </Layout.Row>
+      </Layout.Column>
+    </Layout>
   );
 };
 export default UnitsTab;

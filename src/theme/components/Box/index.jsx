@@ -12,6 +12,8 @@ Box.propTypes = {
   classes: propTypes.string,
   component: propTypes.string,
   children: propTypes.oneOfType([
+    propTypes.number,
+    propTypes.string,
     propTypes.object,
     propTypes.arrayOf(propTypes.object),
   ]),

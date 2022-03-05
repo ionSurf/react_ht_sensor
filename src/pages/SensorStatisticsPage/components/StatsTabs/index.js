@@ -6,13 +6,13 @@ import { useTabs } from "../../../../components/Tabs/hooks";
 //  TODO :: Integrate in Tabs elements
 import { TabsNavi } from "./components";
 
-const SettingsTabs = ({ tabs, children }) => {
+const StatsTabs = ({ tabs, children }) => {
   const { activeTabId, setActiveTab } = useTabs({
     activeTabId: (tabs.length > 0 && tabs[0].id) ?? null,
     tabCount: 0,
     maxTabCount: 3,
   });
-  SettingsTabs.propTypes = {
+  StatsTabs.propTypes = {
     tabs: propTypes.arrayOf(propTypes.object),
     children: propTypes.oneOfType([
       propTypes.any,
@@ -45,4 +45,4 @@ const SettingsTabs = ({ tabs, children }) => {
     </Tabs>
   );
 };
-export default SettingsTabs;
+export default StatsTabs;

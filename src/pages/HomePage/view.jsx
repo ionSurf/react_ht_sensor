@@ -4,6 +4,7 @@ import propTypes from "prop-types";
 const HomePageView = ({ children }) => <>{children}</>;
 HomePageView.propTypes = {
   children: propTypes.oneOfType([
+    propTypes.string,
     propTypes.object,
     propTypes.arrayOf(propTypes.object),
   ]),
