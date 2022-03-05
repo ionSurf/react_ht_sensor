@@ -9,6 +9,8 @@ const SensorSamplingPageView = ({
   hum_val,
   hum_units,
   last_reading,
+  onGetMultiSampleCallback,
+  onGetSingleSampleCallback,
 }) => (
   <Container maxWidth="xl">
     <Container>
@@ -23,16 +25,23 @@ const SensorSamplingPageView = ({
           <Box>{`${tmp_val ?? 0}${tmp_units ?? `˚F`}`}</Box>
         </Grid>
       </Grid>
-      <Box>{last_reading.date}</Box>
-      <Box>{last_reading.time}</Box>
+      {/* <Box>{last_reading.date}</Box>
+      <Box>{last_reading.time}</Box> */}
+      <Box>{last_reading.full}</Box>
     </Container>
     <Container>
       <Grid container spacing={1}>
         <Grid item md={6}>
-          <Button fullWidth={true}>{`Take Single Sample`}</Button>
+          <Button
+            fullWidth={true}
+            onClick={onGetSingleSampleCallback}
+          >{`Take Single Sample`}</Button>
         </Grid>
         <Grid item md={6}>
-          <Button fullWidth={true}>{`Start Batch Sampling`}</Button>
+          <Button
+            fullWidth={true}
+            onClick={onGetMultiSampleCallback}
+          >{`Start Batch Sampling`}</Button>
         </Grid>
       </Grid>
     </Container>
@@ -44,6 +53,8 @@ SensorSamplingPageView.propTypes = {
   hum_val: propTypes.number,
   hum_units: propTypes.string,
   last_reading: propTypes.object,
+  onGetMultiSampleCallback: propTypes.func,
+  onGetSingleSampleCallback: propTypes.func,
   children: propTypes.oneOfType([
     propTypes.string,
     propTypes.object,
